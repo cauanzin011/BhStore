@@ -14,68 +14,44 @@
     --branco: #ffffff;
     --borda: #e5e5e5;
     --sombra: 0 10px 30px rgba(0,0,0,0.12);
-
     --fonte-titulo: "Bebas Neue", sans-serif;
     --fonte-texto: "Poppins", sans-serif;
     --fonte-produto: "Montserrat", sans-serif;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     background: #fafafa;
     color: #111;
     font-family: var(--fonte-texto);
+    overflow-x: hidden;
 }
 
-
-/* ==========================
-   HEADER
-========================== */
-
 header {
-
     height: 70px;
     width: 100%;
-
-    background:
-    rgba(8,8,8,0.95);
-
+    background: rgba(8,8,8,0.95);
     backdrop-filter: blur(10px);
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 25px;
-
     position: fixed;
-
     top: 0;
     left: 0;
-
     z-index: 1001;
-
     border-bottom: 1px solid rgba(200,155,60,0.3);
-
 }
-
 
 .logo {
-
     width: 95px;
     height: 60px;
-
     object-fit: contain;
-
     border-radius: 8px;
-
 }
-
 
 .pesquisa{
     display: flex;
@@ -89,7 +65,6 @@ header {
     border-radius: 30px;
 }
 
-
 .input{
     flex: 1;
     height: 100%;
@@ -100,109 +75,62 @@ header {
     font-size: 15px;
 }
 
-
 .pesquisa i{
     color: #777;
     font-size: 18px;
 }
 
-
 .input::placeholder{
     color: #999;
 }
 
-
 .input:focus{
-    
     outline:none;
-    
 }
-
 
 .menuPesquisaAberto{
-    
     display: flex;
-    
 }
-
 
 .itemPesquisa{
-    
-    display: none !important;
-    
+    display: none ;
 }
 
-
 .whatsapp{
-    position: fixed;
-    
-    right: 20px;
-    
-    bottom: 20px;
-
-    width: 60px;
-    
-    height: 60px;
-
-    border-radius: 50%;
-    
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
     border: none;
-
     background: #25D366;
-    
     color: white;
-
     display: flex;
-    
     justify-content: center;
-    
     align-items: center;
-    
-    z-index: 1000;
-
+    gap: 8px;
     cursor: pointer;
-
-    font-size: 30px;
-
+    font-family: var(--fonte-texto);
+    font-size: 15px;
+    font-weight: 600;
     box-shadow: 0 5px 15px rgba(0,0,0,.25);
-
     transition: .3s;
 }
 
 .whatsapp:hover{
-    transform: scale(1.08);
+    background: #1ebe5b;
+    transform: translateY(-2px);
 }
 
-
-.menuDaPesquisa{
-    position: absolute;
-    top: 110%;
-    left: 0;
-    width: 100%;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
-    padding: 10px;
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.menuPesquisaAberto{
-    display: flex;
+.whatsapp:active{
+    transform: scale(.97);
 }
 
 .menuDaPesquisa{
     position: fixed;
-    top: 110%;
+    top: 70px;
     left: 0;
-    top: 50px;
     width: 100%;
     background: white;
-    border-radius: 15px;
+    border-radius: 0 0 15px 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,.15);
     padding: 10px;
     display: none;
@@ -217,6 +145,16 @@ header {
     display: flex;
 }
 
+.naoEncontrado{
+    display: none;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.naoEncontrado.mostrar{
+    display: flex;
+}
 
 .itensPesquisados{
     display: flex;
@@ -268,156 +206,107 @@ header {
     background:var(--dourado);
 }
 
-
-
 .itensMenu {
-
     display: flex;
     align-items: center;
     gap: 18px;
-
 }
-
 
 .menu {
-
     background: transparent;
-
     border: none;
-
     color: var(--branco);
-
     font-size: 22px;
-
     cursor: pointer;
-
     transition: .3s;
-
 }
-
 
 .carrinho{
     position: relative;
-    
     background: transparent;
-
     border: none;
-
     color: var(--branco);
-
     font-size: 22px;
-
     cursor: pointer;
-
     transition: .3s;
-
 }
 
+.limparCarrinho{
+    align-self: flex-end;
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid #333;
+    color: #bdbdbd;
+    border-radius: 20px;
+    font-family: var(--fonte-texto);
+    font-size: 13px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.limparCarrinho:hover{
+    border-color: var(--dourado);
+    color: var(--dourado);
+}
 
 .menu i{
     transition: transform 0.3s ease;
 }
 
-
 .carrinho:hover,
 .menu:hover {
-
     color: var(--dourado);
-
     transform: translateY(-2px);
-
 }
-
 
 .carrinho:active,
 .menu:active {
-
     transform: scale(.9);
-
 }
-
-
-
-/* ==========================
-   CARRINHO
-========================== */
-
 
 .menuCarrinho {
-
     position: fixed;
-
     top: 0;
-
     right: -100%;
-
     width: min(420px,100%);
-
     height: 100vh;
-
     background: #111;
-  
     z-index: 1000;
-
     padding: 25px;
-
     display: flex;
-
     flex-direction: column;
-
     transition: .4s ease;
-
 }
-
 
 .menuItens{
-    
     position: fixed;
-
     top: 40px;
-
     right: -100%;
-
     width: min(420px,100%);
-
     height: 100vh;
-
     background: #111;
-  
     z-index: 1000;
-
     padding: 25px;
-
     display: flex;
-
     flex-direction: column;
-
     transition: .4s ease;
-
 }
-
 
 .menuCarrinhoAberto {
-
     right:0;
-
 }
-
 
 .menuCabecalho{
     display:flex;
     align-items:center;
     gap:12px;
-
     padding:20px;
-
     border-bottom:1px solid #2c2c2c;
 }
 
 .menuLogo{
     width:55px;
     height:55px;
-    border-radius:50%;
 }
 
 .menuCabecalho h2{
@@ -430,7 +319,6 @@ header {
 .menuLinks{
     display:flex;
     flex-direction:column;
-
     margin-top:20px;
 }
 
@@ -438,30 +326,22 @@ header {
     display:flex;
     align-items:center;
     gap:15px;
-
     padding:18px 25px;
-
     color:#F5F5F5;
-
     text-decoration:none;
-
     font-family:"Poppins", sans-serif;
-
     transition:.25s;
 }
 
 .menuLinks a i{
     width:22px;
     text-align:center;
-
     color:#B8860B;
-
     font-size:20px;
 }
 
 .menuLinks a:hover{
     background:#1E1E1E;
-
     padding-left:35px;
 }
 
@@ -469,41 +349,24 @@ header {
     transform:scale(.98);
 }
 
-
 .menuAberto{
-    
     right:0;
-    
 }
-
 
 .tituloCarrinho {
-
     color:white;
-
     font-family:var(--fonte-titulo);
-
     font-size:45px;
-
     letter-spacing:1px;
-
     text-align:center;
-
     margin-bottom:30px;
-
 }
-
 
 .itensCarrinho {
-
     overflow-y:auto;
-
     flex:1;
-    
     padding-right: 15px;
-    
 }
-
 
 .itensCarrinho::-webkit-scrollbar-thumb {
     background: var(--dourado);
@@ -515,142 +378,179 @@ header {
     border-radius: 20px;
 }
 
-
 .itensTotalCarrinho{
     position: absolute;
     top: -8px;
     right: -8px;
-
     width: 22px;
     height: 22px;
-
     background: #e53935;
     color: white;
-
     border-radius: 50%;
-
     display: none;
     justify-content: center;
     align-items: center;
-
     font-family: "Poppins", sans-serif; 
     font-size: 12px;
     font-weight: 700;
-
     border: 2px solid #111;
 }
 
-
-
 .numero{
-    
     display: flex;
-    
 }
-
-
 
 .itemCarrinho {
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     padding:15px 0;
-
     border-bottom:1px solid #333;
-
     color:white;
-
 }
-
 
 .itemImagem {
-
     width:65px;
-
     height:65px;
-
     object-fit:cover;
-
     border-radius:10px;
-
 }
-
 
 .itemNome {
-    
     font-size:13px;
-    
     width: 70%;
-
 }
-
 
 .itemPreco {
     width: 100%;
-
     font-size:14px;
-
 }
-
 
 .botaoMais,
 .botaoMenos {
     width:30px;
-
     height:30px;
-
     border-radius:50%;
-
     border:1px solid var(--dourado);
-
     background:none;
-
     color:white;
-
     cursor:pointer;
-
 }
-
 
 .botaoMais:hover,
 .botaoMenos:hover {
-
     background:var(--dourado);
-
     color:black;
-
 }
-
 
 .rodapeCarrinho {
-
-    border-top:1px solid #333;
-
-    padding-top:20px;
-
     display:flex;
-
-    justify-content:space-between;
-
+    flex-direction:column;
+    gap:14px;
+    margin-top:10px;
+    padding-top:20px;
+    border-top:1px solid #333;
     color:white;
-
-    font-size:18px;
-
 }
 
+.resumoCarrinho{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+}
 
+.dinheiroTotal{
+    font-size:14px;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    color:var(--cinza-medio);
+}
 
-/* ==========================
-   CONTEÚDO PRINCIPAL
-========================== */
+.dinheiroFinal{
+    font-family:var(--fonte-produto);
+    font-size:22px;
+    font-weight:700;
+    color:var(--dourado);
+}
 
+.pedido{
+    position: fixed;
+    z-index: 10000;
+    inset: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: min(420px, 92%);
+    max-height: 80vh;
+    padding: 30px 25px 25px;
+    background: var(--preto-secundario);
+    border: 1px solid rgba(200,155,60,.3);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    color: var(--cinza);
+    overflow-y: auto;
+}
 
-.mensagemCarrinho,
-.mensagemWhatsapp {
+.pedido::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0,0,0,.7);
+}
+
+.tituloPedido{
+    font-family: var(--fonte-titulo);
+    font-size: 30px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: var(--dourado);
+    margin-bottom: 15px;
+}
+
+.itensNotaFiscal{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    font-size: 14px;
+}
+
+.totalNotaFiscal{
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(200,155,60,.3);
+    font-family: var(--fonte-produto);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dourado);
+}
+
+.concluido{
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: var(--dourado);
+    color: var(--preto);
+    font-family: var(--fonte-texto);
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.concluido:hover{
+    background: var(--dourado-hover);
+    transform: translateY(-2px);
+}
+
+.concluido:active{
+    transform: scale(.97);
+}
+
+.mensagemWhatsapp{
     position: fixed;
     top: 70px;
     right: 20px;
@@ -667,90 +567,69 @@ header {
     z-index: 1010;
 }
 
+.mensagemCarrinho {
+    display: flex;
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    background: #1A1A1A;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    padding: 12px 18px;
+    border-radius: 10px;
+    border: 1px solid #8A6508;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    justify-content: center;
+    z-index: 1010;
+}
 
 .mostrar{
     display: flex;
 }
 
-
 .inicio {
-
     padding-top: 0px;
     margin-top: 0px;
-
 }
-
 
 .fundoBanner{
-    
     background:black;
-    
 }
 
-
 .banner {
-    
     width:100%;
-    
-    height:100vh;
-    
-    height:auto;
-    
+    height:50vh;
     object-fit:cover;
-    
     display:none;
-    
     padding:0px;
-    
     margin-top:0;
-    
 }
 
 .bannerAtivo {
-    
     width:100%;
-    
-    height:100vh;
-    
     height:auto;
-    
-    object-fit:cover;
-    
+    object-fit:contain;
     cursor:pointer;
-    
     display:none;
-    
     padding:0px;
-    
-    margin-top:5px;
-    
+    margin-top:50px;
     display:flex;
-    
-    animation: rolar .8s ease;
-    
+    animation: aparecer .8s ease;
 }
-
-
 
 @keyframes aparecer {
-
     from {
-
         opacity:0;
-
-        transform:translateY(50px);
-
+        transform:translatex(100px);
     }
-
     to {
-
         opacity:1;
-
-        transform:translateY(0);
-
+        transform:translatex(0);
     }
 }
-
 
 @keyframes rolar {
     from {
@@ -761,97 +640,47 @@ header {
     }
 }
 
-
-
-/* ==========================
-   CATEGORIAS
-========================== */
-
-
 .categorias {
-
     margin:30px auto;
-
     width:90%;
-
     background:white;
-
     border-radius:20px;
-
     padding:25px;
-
     box-shadow:var(--sombra);
-
 }
-
 
 .tituloCategorias {
-
     font-family:var(--fonte-titulo);
-
     font-size:40px;
-
     text-align:center;
-
     letter-spacing:1px;
-
     margin-bottom:20px;
-
     color:var(--preto);
-
 }
-
 
 .links {
-
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:12px;
-
 }
-
 
 .links a {
-
     text-decoration:none;
-
     color:#333;
-
     background:#f1f1f1;
-
     padding:10px 22px;
-
     border-radius:30px;
-
     font-family:var(--fonte-texto);
-
     font-weight:500;
-
     transition:.3s;
-
 }
-
 
 .links a:hover {
-
     background:var(--dourado);
-
     color:white;
-
     transform:translateY(-3px);
-
 }
-
-
-
-/* ==========================
-   TÍTULOS DAS SEÇÕES
-========================== */
-
 
 .maisVendidosTitulo,
 .secaoCamisas,
@@ -863,22 +692,14 @@ header {
 .secaoAcessorios,
 .secaoProdutosNovos,
 .secaoProdutosPromocao {
-
-    font-family:var(--fonte-titulo);
-
-    font-size:55px;
-
-    text-align:center;
-
-    margin:50px 0 30px;
-
-    letter-spacing:2px;
-
-    color:var(--preto);
-
+    font-family: var(--fonte-titulo);
+    font-size: 55px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: var(--preto);
+    width: fit-content;
+    margin: 50px auto 30px;
 }
-
-
 
 .maisVendidosTitulo::after,
 .secaoCamisas::after,
@@ -890,648 +711,350 @@ header {
 .secaoAcessorios::after,
 .secaoProdutosPromocao::after,
 .secaoProdutosNovos::after {
-
-    content:"";
-
-    display:block;
-
-    width:70px;
-
-    height:4px;
-
-    background:var(--dourado);
-
-    margin:10px auto;
-
-    border-radius:20px;
-
+    content: "";
+    display: block;
+    height: 4px;
+    background: var(--dourado);
+    border-radius: 20px;
+    width: 100%;
+    margin-top: -10px;
 }
-
-
-
-/* ==========================
-   PRODUTOS
-========================== */
-
 
 .divisaoProdutos {
-
     width:90%;
-
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
+    grid-template-columns: repeat(4,1fr);
     gap:25px;
-
 }
-
 
 .produtos {
-
     background:white;
-
     border-radius:20px;
-
     padding:18px;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.08);
-
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
     transition:.35s ease;
-
     overflow:hidden;
-
     position:relative;
-
 }
-
 
 .produtos:hover {
-
     transform:translateY(-10px);
-
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.15);
-
+    box-shadow: 0 15px 35px rgba(0,0,0,.15);
 }
-
-
 
 .imagemProduto {
-
     width:100%;
-
     height:220px;
-
     object-fit:contain;
-
     border-radius:15px;
-
     transition:.4s;
-
 }
-
 
 .produtos:hover .imagemProduto {
-
     transform:scale(1.08);
-
 }
-
-
 
 .produtoNome {
-
     width:100%;
-
     margin-top:15px;
-
     font-family:var(--fonte-produto);
-
     font-size:17px;
-
     font-weight:700;
-
     color:#222;
-
 }
-
 
 .produtoPreco {
-
     width:100%;
-
     margin-top:8px;
-
     font-size:20px;
-
     font-weight:500;
-
     color:var(--dourado);
-
 }
-
 
 .precoFalso {
-
     width:100%;
-
     margin-top:8px;
-    
     margin-bottom:4px;
-
     font-size:12px;
-
     font-weight:600;
-
     color: slategrey;
-
 }
-
-
 
 .produtoBotao {
-
     margin-top:15px;
-
     width:100%;
-
     padding:12px;
-
     border:none;
-
     border-radius:12px;
-
     background:var(--preto);
-
     color:white;
-
     cursor:pointer;
-
     font-family:var(--fonte-texto);
-
     font-weight:600;
-
     transition:.3s;
-
 }
-
-
 
 .produtoBotao:hover {
-
     background:var(--dourado);
-
     color:white;
-
     transform:translateY(-3px);
-
 }
-
 
 .produtoBotao:active {
-
     transform:scale(.95);
-
 }
-
-
-
-/* ==========================
-   SUBCATEGORIAS
-========================== */
-
 
 .bones,
 .mochilas,
 .bolas,
 .luvas {
-
     text-align:center;
-
     font-family:var(--fonte-produto);
-
     font-size:25px;
-
     margin:35px 0 15px;
-
     color:#222;
-
 }
-/* ==========================
-   MARCAS
-========================== */
-
 
 .marcas {
-
     width:90%;
-
     margin:70px auto 30px;
-
     text-align:center;
-
     font-family:var(--fonte-titulo);
-
     font-size:55px;
-
     letter-spacing:2px;
-
 }
-
 
 .marcas::after {
-
     content:"";
-
     display:block;
-
     width:70px;
-
     height:4px;
-
     background:var(--dourado);
-
     margin:10px auto;
-
     border-radius:20px;
-
 }
-
-
 
 .todasMarcas {
-
     width:90%;
-
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-    repeat(7,1fr);
-
+    grid-template-columns: repeat(7,1fr);
     gap:20px;
-
     padding:30px;
-
     background:white;
-
     border-radius:20px;
-
     box-shadow:var(--sombra);
-
 }
-
-
 
 .logoTitulo {
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     gap:10px;
-
     padding:15px;
-
     border-radius:15px;
-
     transition:.3s;
-
 }
-
-
 
 .logoTitulo:hover {
-
     background:#f5f5f5;
-
     transform:translateY(-5px);
-
 }
-
-
 
 .marca {
-
     width:55px;
-
     height:55px;
-
     object-fit:contain;
-
 }
-
-
 
 .logoTitulo h3 {
-
     font-family:var(--fonte-texto);
-
     font-size:15px;
-
     font-weight:600;
-
 }
-
-
-
-/* ==========================
-   FOOTER
-========================== */
 
 footer{
-
     margin-top:80px;
-
     background:#0b0b0b;
-
     color:white;
-
 }
 
+.footerSobre{
+    display:flex;
+    flex-direction:column;
+}
+
+details{
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:10px 0;
+}
 
 summary{
     color: #d8d8d8;
     font-size: 15px;
+    font-weight:500;
     line-height: 1.6;
+    cursor:pointer;
+    transition:.3s;
+}
+
+summary:hover{
+    color:var(--dourado);
+}
+
+details p{
+    margin-top:10px;
+    color:#9c9c9c;
+    font-size:14px;
+    line-height:1.7;
 }
 
 .footerContainer{
-
     width:90%;
-
     max-width:1400px;
-
     margin:auto;
-
     display:grid;
-
     grid-template-columns:2fr 1fr 1fr 1fr;
-
     gap:40px;
-
     padding:60px 0;
-
 }
 
 .logoFooter{
-
     width:120px;
-
     border-radius:12px;
-
     margin-bottom:15px;
-
 }
 
 .footerLogo p{
-
     color:#bdbdbd;
-
     line-height:1.8;
-
     font-size:15px;
-
     max-width:320px;
-
 }
 
 .footerLinks h3,
 .footerRedes h3,
 .sobreNos {
-
     font-family:var(--fonte-produto);
-
     font-size:20px;
-
     color:var(--dourado);
-
     margin-bottom:18px;
-
 }
 
 .footerLinks{
-
     display:flex;
-
     flex-direction:column;
-
     gap:12px;
-
 }
 
 .footerLinks a{
-
     color:#d6d6d6;
-
     text-decoration:none;
-
     transition:.3s;
-
 }
 
 .footerLinks a:hover{
-
     color:var(--dourado);
-
     padding-left:8px;
-
 }
 
 .icones{
-
     display:flex;
-
     gap:15px;
-
     margin-top:10px;
-
 }
 
 .icones a{
-
     width:45px;
-
     height:45px;
-
     background:#1d1d1d;
-
     border-radius:50%;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     color:white;
-
     text-decoration:none;
-
     font-size:18px;
-
     transition:.3s;
-
 }
 
 .icones a:hover{
-
     background:var(--dourado);
-
     color:black;
-
     transform:translateY(-5px);
-
 }
 
 .footerBaixo{
-
     border-top:1px solid rgba(255,255,255,.08);
-
     text-align:center;
-
     padding:20px;
-
 }
 
 .footerBaixo p{
-
     color:#a8a8a8;
-
     font-size:14px;
-
 }
-
-
-
-/* ==========================
-   SCROLLBAR PERSONALIZADA
-========================== */
-
 
 ::-webkit-scrollbar {
-
     width:10px;
-
 }
-
 
 ::-webkit-scrollbar-track {
-
     background:#eee;
-
 }
-
 
 ::-webkit-scrollbar-thumb {
-
     background:var(--dourado);
-
     border-radius:20px;
-
 }
-
-
-
-/* ==========================
-   EFEITO DE ENTRADA NOS CARDS
-========================== */
-
 
 .produtos {
-
-    animation:
-
-    aparecerCard .6s ease;
-
+    animation: aparecerCard .6s ease;
 }
-
-
 
 @keyframes aparecerCard {
-
-
     from {
-
         opacity:0;
-
         transform:translateY(30px);
-
     }
-
-
     to {
-
         opacity:1;
-
         transform:translateY(0);
-
     }
-
 }
-
-
-
-/* ==========================
-   AJUSTES GERAIS
-========================== */
-
 
 section {
-
     scroll-margin-top:90px;
-
 }
-
 
 a {
-
     transition:.3s;
-
 }
-
 
 button {
-
     outline:none;
-
 }
-
 
 img {
-
     user-select:none;
-
 }
-/* ==========================
-   TABLETS
-========================== */
-
 
 @media (max-width: 1024px) {
-
-
     .divisaoProdutos {
-
-        grid-template-columns:
-        repeat(3,1fr);
-
+        grid-template-columns: repeat(3,1fr);
         width:92%;
-
     }
-
-
     .todasMarcas {
-
-        grid-template-columns:
-        repeat(4,1fr);
-
+        grid-template-columns: repeat(4,1fr);
     }
-
-
     .imagemProduto {
-
         height:200px;
-
     }
-
-
     .maisVendidosTitulo,
     .secaoCamisas,
     .secaoShorts,
@@ -1541,166 +1064,69 @@ img {
     .secaoCalcas,
     .secaoAcessorios,
     .marcas {
-
         font-size:45px;
-
     }
-    
-    
-    .acessoriosMochilas,
-    .acessoriosBones,
-    .acessoriosBolas,
-    .acessoriosLuvas{
-        
+    .mochilas,
+    .bones,
+    .bolas,
+    .luvas{
         font-size:24.5px;
-        
     }
-
 }
-
-
-
-/* ==========================
-   CELULAR GRANDE
-========================== */
-
 
 @media (max-width:768px) {
-
-
     header {
-
         height:65px;
-
         padding:0 15px;
-
     }
-
-
     .logo {
-
         width:85px;
-
         height:55px;
-
     }
-
-
-
     .inicio {
-
         padding-top:60px;
-
     }
-
-
-
     .bannerAtivo,
     .banner {
-
         max-height:220px;
-
         object-fit:cover;
-
     }
-
-
-
     .categorias {
-
         width:94%;
-
         padding:18px;
-
     }
-
-
-
     .tituloCategorias {
-
         font-size:35px;
-
     }
-
-
-
     .links {
-
         gap:8px;
-
     }
-
-
-
     .links a {
-
         padding:8px 15px;
-
         font-size:14px;
-
     }
-
-
-
-
     .divisaoProdutos {
-
         width:94%;
-
-        grid-template-columns:
-
-        repeat(2,1fr);
-
+        grid-template-columns: repeat(2,1fr);
         gap:15px;
-
     }
-
-
-
     .produtos {
-
         padding:12px;
-
         border-radius:15px;
-
     }
-
-
-
     .imagemProduto {
-
         height:150px;
-
     }
-
-
-
     .produtoNome {
-
         font-size:14px;
-
     }
-
-
-
     .produtoPreco {
-
         font-size:17px;
-
     }
-
-
-
     .produtoBotao {
-
         font-size:12px;
-
         padding:10px 5px;
-
     }
-
-
-
     .maisVendidosTitulo,
     .secaoCamisas,
     .secaoShorts,
@@ -1710,200 +1136,80 @@ img {
     .secaoCalcas,
     .secaoAcessorios,
     .marcas {
-
         font-size:38px;
-
         margin-top:40px;
-
     }
-    
-    
-    .acessoriosMochilas,
-    .acessoriosBones,
-    .acessoriosBolas,
-    .acessoriosLuvas{
-        
+    .mochilas,
+    .bones,
+    .bolas,
+    .luvas{
         font-size:20px;
-        
         margin-top:22px;
-        
     }
-
-
-
     .todasMarcas {
-
         width:94%;
-
-        grid-template-columns:
-
-        repeat(2,1fr);
-
+        grid-template-columns: repeat(2,1fr);
         padding:15px;
-
     }
-    
-    
-    
     .footerContainer{
-
     grid-template-columns:1fr;
-
     text-align:center;
-
 }
-
 .footerLogo p{
-
     margin:auto;
-
 }
-
 .icones{
-
     justify-content:center;
-
 }
-
-
 }
-
-
-
-
-/* ==========================
-   CELULAR PEQUENO
-========================== */
-
 
 @media (max-width:480px) {
-
-
     .divisaoProdutos {
-
-        grid-template-columns:
-
-        repeat(2,1fr);
-
+        grid-template-columns: repeat(2,1fr);
         gap:10px;
-
     }
-
-
-
     .produtos {
-
         padding:10px;
-
     }
-
-
-
     .imagemProduto {
-
         height:125px;
-
     }
-
-
-
     .produtoNome {
-
         font-size:12px;
-
     }
-
-
-
     .produtoPreco {
-
         font-size:15px;
-
     }
-
-
-
     .produtoBotao {
-
         border-radius:8px;
-
         font-size:11px;
-
     }
-
-
-
     .tituloCarrinho {
-
         font-size:38px;
-
     }
-
-
-
     .itemCarrinho {
-
         flex-wrap:wrap;
-
     }
-
-
-
     .itemNome {
-
         font-size:12px;
-
     }
-
-
-
     .marca {
-
         width:45px;
-
         height:45px;
-
     }
-
-
-
     footer p {
-
         font-size:12px;
-
         padding:15px;
-
     }
-
 }
 
-
-
-/* ==========================
-   TELAS GRANDES
-========================== */
-
-
 @media (min-width:1400px) {
-
-
     .divisaoProdutos {
-
-        grid-template-columns:
-
-        repeat(5,1fr);
-
+        grid-template-columns: repeat(5,1fr);
         max-width:1400px;
-
     }
-
-
     .categorias,
     .todasMarcas {
-
         max-width:1400px;
-
     }
-
-
 }
