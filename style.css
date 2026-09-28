@@ -1228,7 +1228,6 @@ img {
         padding:15px;
     }
 }
-
 @media (min-width:1400px) {
     .divisaoProdutos {
         grid-template-columns: repeat(5,1fr);
