@@ -324,7 +324,6 @@ function mostrarProdutos(){
             })
         }
     })
-    
     menuDaPesquisa.classList.add("menuPesquisaAberto")
 
     if(encontrouProduto === false){
