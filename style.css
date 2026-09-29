@@ -152,6 +152,14 @@ header {
     display: flex;
 }
 
+.menuDaPesquisa.menuPesquisaAberto {
+    display: flex;
+}
+
+.produtos.itemPesquisa {
+    display: none;
+}
+
 .itensPesquisados{
     display: flex;
     align-items: center;
