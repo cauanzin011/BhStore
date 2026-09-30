@@ -156,10 +156,6 @@ header {
     display: flex;
 }
 
-.produtos.itemPesquisa {
-    display: none;
-}
-
 .itensPesquisados{
     display: flex;
     align-items: center;
